@@ -1,5 +1,7 @@
 # Docker Cagent Playground
 
+[![CI](https://github.com/tubone24/docker-cagent-playground/actions/workflows/ci.yml/badge.svg)](https://github.com/tubone24/docker-cagent-playground/actions/workflows/ci.yml)
+
 A web-based chat UI for interacting with Cagent agents.
 
 ![Demo](docs/images/demo.gif)
@@ -149,3 +151,58 @@ This Playground is a web-based chat UI for interacting with Cagent agents. It pr
 
   ![Remote MCP Server Approval](docs/images/remote_mcp.png)
   *OAuth authentication approval for remote MCP server connections*
+
+## Development
+
+### Prerequisites
+
+- Node.js 20+
+- npm
+
+### Setup
+
+```bash
+cd chat-ui
+npm install
+```
+
+### Testing
+
+The project includes comprehensive testing with linting, formatting, unit tests, and E2E tests.
+
+```bash
+# Linting
+npm run lint          # Check code with ESLint
+npm run lint:fix      # Auto-fix linting issues
+
+# Formatting
+npm run format        # Format code with Prettier
+npm run format:check  # Check code formatting
+
+# Unit Tests (Jest + React Testing Library)
+npm run test          # Run unit tests
+npm run test:watch    # Run tests in watch mode
+npm run test:coverage # Run tests with coverage report
+
+# E2E Tests (Playwright)
+npm run test:e2e        # Run E2E tests (headless)
+npm run test:e2e:ui     # Run E2E tests with UI
+npm run test:e2e:headed # Run E2E tests with browser visible
+
+# Run all checks
+npm run test:all      # Run lint, format check, unit tests, and E2E tests
+```
+
+For more details, see [chat-ui/TESTING.md](chat-ui/TESTING.md).
+
+### Continuous Integration
+
+GitHub Actions automatically runs the following checks on every push and pull request:
+
+- ESLint (code linting)
+- Prettier (code formatting check)
+- Jest (unit tests with coverage)
+- Next.js build
+- Playwright (E2E tests)
+
+Check the [CI workflow](.github/workflows/ci.yml) for details.
